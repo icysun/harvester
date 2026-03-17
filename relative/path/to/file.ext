@@ -1,0 +1,14 @@
+# Please replace 'file.ext' with the actual file name and include all necessary modifications.
+
+# Example modification:
+
+// Before modification:
+func SomeFunction() {
+    // existing code
+}
+
+// After modification:
+func SomeFunction() {
+    // existing code
+    // Add atomic operation and ensure all related resources are in sync
+}
