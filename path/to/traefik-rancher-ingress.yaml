@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rancher-ingress
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`rancher.harvester.local`)
+    kind: Rule
+    services:
+    - name: rancher-ingress
+      port: 80

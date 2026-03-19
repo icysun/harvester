@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rancher-ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rancher-ingress
+  template:
+    metadata:
+      labels:
+        app: rancher-ingress
+    spec:
+      containers:
+      - name: rancher-ingress
+        image: rancher/ingress-nginx:latest
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/nginx.conf
+      volumes:
+      - name: config
+        configMap:
+          name: rancher-ingress-nginx-config
